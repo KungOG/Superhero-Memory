@@ -1,0 +1,432 @@
+/*
+*   Text in HTML
+*/
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    margin: 5px 0;
+    background: black;
+    overflow: hidden;
+    font-family: verdana;
+}
+p {
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    margin: 0 auto;
+
+}
+h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 15em;
+    opacity: 0.1;
+    padding-top: 0;
+    pointer-events: none;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    padding: 0 15%;
+}
+.overlayh1 {
+    pointer-events: none;
+}
+.steps {
+    color: white;
+    display: inline-block;
+    margin: 0 1rem;
+    font-size: 0.7em;
+    margin-left: 10%;
+}
+.timer {
+    color: white;
+    display: inline-block;
+    font-size: 0.7em;
+}
+
+/*
+*   Card-grid and it's style
+*/
+.grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+        justify-content: space-evenly;
+}
+.card {
+    position: relative;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    margin: 5px;
+}
+.card, .back, .front {
+    height: 150px;
+    width: 150px;
+}
+.back, .front {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+}
+.front {
+    background: black url('img/backsideQuest.jpg') no-repeat center center / contain;
+}
+.back {
+    -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    border: solid 4px #2b2b2b;
+}
+.selected {
+    -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+}
+.match .front {
+    background: none !important;
+}
+
+/*
+*   The Styling for buttons
+*/
+
+/* Home button */
+#return {
+    padding: 0 0 0 1%;
+    font-size: 0.7em; 
+    cursor: pointer; 
+}
+
+/* Restart button */
+#reloadGame {
+    font-size: 0.7em; 
+    cursor: pointer; 
+}
+
+/* Rule pop out */
+#rulelink {
+    cursor: pointer;
+}
+.rules {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-size: 0.7em;
+}
+h3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 5%;
+}
+.popText {
+    position: absolute;
+    visibility: hidden;
+    padding: 5%;
+    top: 10%;
+    left: 20%;
+    right: 20%;
+    background: rgb(124, 10, 2);
+    border-radius: 2%;
+    transition: opacity 500ms;
+    z-index: 50;
+    opacity: 1;
+}
+
+/* The Close Button */
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}  
+  .close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+*   Pop out window
+*/
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(124, 10, 2);
+    transition: opacity 500ms;
+    visibility: hidden;
+}
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+.popout {
+    margin: 70px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    width: 85%;
+    position: relative;
+    transition: all 1s ease-in-out;
+    z-index: 100;
+    top: 20px;
+    transition: all 200ms;
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+.popout h2 {
+    font-family: 'Amatic SC', cursive;
+    justify-content: center;
+    display: flex;
+    color: black;
+    font-size: 50px;
+}
+.innerPop {
+    max-height: 30%;
+	overflow: auto;
+	text-align: center;
+}
+#reload {
+    padding: 2% 5%;
+    margin: 15px auto;
+    justify-content: center;
+    display: flex;
+}
+.show {
+    visibility: visible !important;
+}
+
+/*
+*   Responsive
+*/
+
+/* iPhone 5 */
+@media only screen and (min-width: 100px) and (max-width: 350px) {
+    .card, .back, .front {
+        height: 70px;
+        width: 70px;
+    }
+    h1 {
+        font-size: 7em;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  10px;
+    }
+}
+
+/* galaxy S5  */
+@media only screen and (min-width: 350px) and (max-width: 370px) {
+    .card, .back, .front {
+        height: 70px;
+        width: 70px;
+    }
+    h1 {
+        font-size: 6em;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  10px;
+    }
+}
+
+/* iPhone X */
+@media only screen and (min-width: 370px) and (max-width: 400px) {
+    .card, .back, .front {
+        height: 83px;
+        width: 83px;
+    }
+    h1 {
+        font-size: 8em;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  10px;
+    }
+}
+
+/* iPhone fixed 6/7  Pixel 2 */
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+    .card, .back, .front {
+        height: 90px;
+        width: 90px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 9em;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  10px;
+    }
+}
+
+/* Multi Sizes */
+@media only screen and (min-width: 600px) and (max-width: 666px) {
+    .card, .back, .front {
+        height: 100px;
+        width: 100px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 9em;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  10px;
+    }
+}
+@media only screen and (min-width: 666px) and (max-width: 754px) {
+    .card, .back, .front {
+        height: 110px;
+        width: 110px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 9em;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  10px;
+    }
+}
+@media only screen and (min-width: 754px) and (max-width: 850px) {
+    .card, .back, .front {
+        height: 120px;
+        width: 120px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 11em;
+    }
+    h3 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  20px;
+    }
+}
+@media only screen and (min-width: 850px) and (max-width: 966px) {
+    .card, .back, .front {
+        height: 130px;
+        width: 130px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 12em;
+    } 
+    h3 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  20px;
+    }
+}
+
+/* iPad */
+@media only screen and (width: 768px) {
+    .card, .back, .front {
+        height: 150px;
+        width: 150px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h3 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 20px;
+    }
+    #ruleclose {
+        font-size:  20px;
+    }
+}
+
+/* iPad Pro */
+@media only screen and (width: 1024px) {
+    .card, .back, .front {
+        height: 200px;
+        width: 200px;
+    }
+    body {
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 15em;
+    }
+    h3 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 25px;
+    }
+    #ruleclose {
+        font-size:  20px;
+    }
+}

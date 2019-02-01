@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" href="img/crownicon.png" type="image/icon" />
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <title>KungOG calls the heroes!</title>
+</head>
+
+<body>
+  <!-- Text in background -->
+  <div class="overlayh1">
+    <h1 unselectable="on" class="noselect">The Calling of heroes!</h1>
+  </div>
+  <!-- Navbar -->
+  <div id="return" class="rules">Home</div>
+  <div id="reloadGame" class="rules">Restart</div>
+  <div id="theRules" class="rules">
+    <div id="rulelink">Rules</div>
+    <span id="rulesPop" class="popText" class="overlay">
+    <span class="close" id="ruleclose">&times;</span>
+    <h3>The Rules of our Heroes</h3>
+    <p>Pair 2 heroes to get a match. Each time you match they will fade out and go protect our world. 
+        <br>We need all of our 12 heroes.
+        We need you to find them all as fast as possible.
+        The world depends on you, <br>Good luck for now.</p>
+    </span>
+ </div>
+ <!-- Steps counter and Timer -->
+  <div class="steps"></div>
+  <div class="timer"></div>
+<!-- 
+  The Game and after Pop up with 
+  end time and count.
+-->
+  <div id="game"></div>
+  <div id="winpop" class="overlay">
+    <div class="popout">
+      <h2>Congratulations!!!</h2>
+      <div class="innerPop">
+        <p>You just saved the world! You found 'em all!</p>
+        <p>You made <span id=totalMove> </span> in</p>
+        <p><span id=totalTime> </span>, good job!</p>
+      </div>
+      <button id="reload">
+        <p>Play again?</p>
+      </button>
+    </div>
+  </div>
+  <script src="main.js" type="module"></script>
+
+</body>
+</html>
